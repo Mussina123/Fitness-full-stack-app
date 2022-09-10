@@ -9,7 +9,6 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
-const PORT = process.env.PORT || 5000
 
 require('dotenv').config({path: './config/.env'})
 
@@ -41,8 +40,8 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-app.use('/todos', todoRoutes)
+app.use('/posts', todoRoutes)
  
-app.listen(process.env.PORT, ()=>{
-    console.log(`Server is running on port ${PORT}`)
+app.listen(process.env.PORT || 5000, ()=>{
+    console.log(`Server is running on port ${process.env.PORT}`)
 })    
