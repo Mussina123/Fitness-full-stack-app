@@ -17,7 +17,7 @@ require('./config/passport')(passport)
 
 connectDB()
 
-// app.set('view engine', 'ejs')
+app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -40,7 +40,7 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-app.use('/posts', todoRoutes)
+app.use('/todos', todoRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
