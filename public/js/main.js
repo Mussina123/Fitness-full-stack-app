@@ -17,11 +17,11 @@ Array.from(todoComplete).forEach((el)=>{
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('posts/deleteWorkout', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'workoutIdFromJSFile': todoId
             })
         })
         const data = await response.json()
@@ -35,7 +35,7 @@ async function deleteTodo(){
 async function markComplete(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('posts/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -53,11 +53,11 @@ async function markComplete(){
 async function markIncomplete(){
     const todoId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('posts/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'workoutIdFromJSFile': todoId
             })
         })
         const data = await response.json()
