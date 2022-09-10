@@ -10,7 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: '.env'})
 
 // Passport config
 require('./config/passport')(passport)
@@ -42,6 +42,6 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/posts', todoRoutes)
  
-app.listen(process.env.PORT || 5000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
 })    
